@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>个股</title>
+		<link href="search.css" rel="stylesheet" type="text/css"/>
+    </head>
+    
+    <body>
+		<script type="text/javascript">
+			window.onload = function(){
+				document.getElementById("code").value = getQueryString("code");
+			}
+			function getQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+				var r = window.location.search.substr(1).match(reg);
+				if (r != null) return unescape(r[2]); return null;
+			}
+		</script>
+
+        <div class="search">
+            <input type="text" placeholder="请输入个股代码..." name="" id="code" value="" />
+            <button onclick="jk()"><i>简况</i></button>
+			<button onclick="gz()"><i>股诊</i></button>
+			<button onclick="gl()"><i>股论</i></button>
+        </div>
+    </body>
+</html>
+
+<script>
+        function jk()
+        {
+			//document.getElementById('tab_1').innerHTML = "<iframe src='http://basic.10jqka.com.cn/mobile/601138/companyindexn.html?showtab=1&code=601138&code_name=工业富联&market_id=17'"+"height=100%  width=100% frameborder='0' scrolling='auto'"+"></iframe>";
+			//alert(document.getElementById("code").value)
+			window.open("http://basic.10jqka.com.cn/mobile/" + document.getElementById("code").value + "/companyindexn.html?&showtab=1"); 
+		}
+		function gz()
+        {
+			//alert("I am an alert box!!")
+			//document.getElementById('tab_1').innerHTML = "<iframe src='http://vaserviece.10jqka.com.cn/advancediagnosestock/html/601138/index.html'"+"height=100%  width=100% frameborder='0' scrolling='auto'"+"></iframe>";
+			window.open("http://vaserviece.10jqka.com.cn/advancediagnosestock/html/" + document.getElementById("code").value + "/index.html"); 
+		}
+		function gl()
+        {
+			//alert("I am an alert box!!")
+			//document.getElementById('tab_1').innerHTML = "<iframe src='https://t.10jqka.com.cn/m/guba/601728/17/'"+"height=100%  width=100% frameborder='0' scrolling='auto'"+"></iframe>";
+			window.open("https://t.10jqka.com.cn/m/guba/" + document.getElementById("code").value + "/"); 
+		}
+		
+</script>
